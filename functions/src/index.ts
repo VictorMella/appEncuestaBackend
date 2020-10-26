@@ -29,7 +29,6 @@ export const getGOTY = functions.https.onRequest( async (request, response) => {
 // EXPRESS
 const app = express();
 
-const port = process.env.PORT || 5000
 
 app.use(cors ({ origin: true }))
 app.get('/goty', async (req, res) => {
@@ -60,10 +59,6 @@ app.post('/goty/:id', async (req, res) => {
       mensaje: `Gracias por votar por ${antes.name}`
     })
   }
-})
-
-app.listen(port, ()=> {
-  console.log(`Estamos en el puerto ${port}`)
 })
 
 export const api = functions.https.onRequest( app )
